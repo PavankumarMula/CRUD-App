@@ -47,12 +47,13 @@ exports.addbook = (req, res) => {
     title: title,
     price: price,
     description: description,
+    userId: req.user.id // Access req.user.id after it is set in the middleware
   })
     .then((result) => {
       console.log(result);
+      res.json("Product received successfully");
     })
     .catch((err) => console.log(err));
-  res.json("product received sucessfully ");
 };
 
 exports.deleteProduct = async (req, res) => {
